@@ -1,0 +1,23 @@
+{
+  "name": "tryhard-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node --env-file=.env dist/main",
+    "dev": "tsx --env-file=.env --watch src/main "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "eslint": "^9.6.0",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  }
+}
