@@ -1,4 +1,4 @@
-import { CommandInterface } from "@/interfaces/command.interface";
+import { CommandInterface } from "../../interfaces/command.interface";
 import {
   CacheType,
   ChatInputCommandInteraction,
