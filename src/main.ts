@@ -1,6 +1,6 @@
 import { Client, Events, GatewayIntentBits, REST, Routes } from "discord.js";
 import { env } from "./config/env";
-import { commandMapper } from "@/commands-mapper";
+import { commandMapper } from "./commands-mapper";
 
 const commands = commandMapper();
 
