@@ -1,21 +1,21 @@
-import { CommandInterface } from "../../interfaces/command.interface";
+import { CommandInterface } from '../../interfaces/command.interface';
 import {
   CacheType,
   ChatInputCommandInteraction,
   SlashCommandBuilder,
-} from "discord.js";
+} from 'discord.js';
 
 export const command: CommandInterface = {
-  name: "joke",
+  name: 'joke',
 
   data: new SlashCommandBuilder()
-    .setName("joke")
-    .setDescription("Sends a random joke!"),
+    .setName('joke')
+    .setDescription('Sends a random joke!'),
 
   async execute(interaction: ChatInputCommandInteraction<CacheType>) {
-    const response = await fetch("https://icanhazdadjoke.com/", {
+    const response = await fetch('https://icanhazdadjoke.com/', {
       headers: {
-        Accept: "application/json",
+        Accept: 'application/json',
       },
     });
     const { joke } = await response.json();

@@ -1,17 +1,17 @@
-import { CommandInterface } from "../../interfaces/command.interface";
+import { CommandInterface } from '../../interfaces/command.interface';
 import {
   BaseGuildTextChannel,
   CacheType,
   ChatInputCommandInteraction,
   SlashCommandBuilder,
-} from "discord.js";
+} from 'discord.js';
 
 export const command: CommandInterface = {
-  name: "clear",
+  name: 'clear',
 
   data: new SlashCommandBuilder()
-    .setName("clear")
-    .setDescription("Clear the last 100 messages from the current chat!"),
+    .setName('clear')
+    .setDescription('Clear the last 100 messages from the current chat!'),
   async execute(interaction: ChatInputCommandInteraction<CacheType>) {
     const channel = interaction.channel;
 
@@ -20,7 +20,7 @@ export const command: CommandInterface = {
       channel.bulkDelete(messages, true);
     }
 
-    interaction.reply("Deleting ...");
+    interaction.reply('Deleting ...');
 
     interaction.deleteReply();
   },
