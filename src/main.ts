@@ -1,4 +1,11 @@
-import { Client, Events, GatewayIntentBits, REST, Routes } from 'discord.js';
+import {
+  ActivityType,
+  Client,
+  Events,
+  GatewayIntentBits,
+  REST,
+  Routes,
+} from 'discord.js';
 import { env } from './config/env';
 import { commandMapper } from './commands-mapper';
 
@@ -33,6 +40,9 @@ registerCommands();
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.once(Events.ClientReady, (readyClient) => {
+  readyClient.user.setPresence({
+    activities: [{ name: `Under development`, type: ActivityType.Playing }],
+  });
   console.log(`Ready! Logged in as ${readyClient.user.tag} 😎`);
 });
 
