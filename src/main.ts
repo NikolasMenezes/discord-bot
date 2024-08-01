@@ -41,7 +41,12 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.once(Events.ClientReady, (readyClient) => {
   readyClient.user.setPresence({
-    activities: [{ name: `Under development`, type: ActivityType.Playing }],
+    activities: [
+      {
+        name: `Under development`,
+        type: ActivityType.Playing,
+      },
+    ],
   });
   console.log(`Ready! Logged in as ${readyClient.user.tag} 😎`);
 });
