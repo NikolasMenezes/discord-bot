@@ -54,10 +54,10 @@ client.once(Events.ClientReady, (readyClient) => {
 client.on(Events.InteractionCreate, async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
-  const recivedCommand = interaction.commandName;
+  const receivedCommand = interaction.commandName;
 
   const [commandToExecute] = (await commands).filter(
-    (command) => command.name === recivedCommand,
+    (command) => command.name === receivedCommand,
   );
 
   if (!commandToExecute) {

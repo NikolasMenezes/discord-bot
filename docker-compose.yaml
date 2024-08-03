@@ -1,0 +1,11 @@
+services:
+  bot:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    restart: unless-stopped
+    user: node
+    command: pnpm dev
