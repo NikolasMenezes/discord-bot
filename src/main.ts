@@ -17,7 +17,9 @@ async function registerCommands() {
   );
 
   try {
-    const rest = new REST().setToken(env.BOT_TOKEN);
+    const rest = new REST();
+
+    rest.setToken(env.BOT_TOKEN);
 
     console.log(
       `Started refreshing ${filteredCommands.length} application (/) commands.`,
@@ -41,10 +43,11 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.once(Events.ClientReady, (readyClient) => {
   readyClient.user.setPresence({
+    status: 'idle',
     activities: [
       {
         name: `Under development`,
-        type: ActivityType.Playing,
+        type: ActivityType.Custom,
       },
     ],
   });

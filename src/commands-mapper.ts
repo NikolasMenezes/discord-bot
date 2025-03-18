@@ -1,21 +1,21 @@
-import { readdirSync } from 'fs';
-import { join } from 'path';
+import { readdirSync } from 'node:fs';
+import { join } from 'node:path';
 import { CommandInterface } from './interfaces/command.interface';
 import { env } from './config/env';
 
 export async function commandMapper() {
   const commands: CommandInterface[] = [];
 
-  const isDevEnv = env.NODE_ENV === 'development';
+  const isDevEnv = env.NODE_ENV === 'DEVELOPMENT';
 
   const foldersPath = join(__dirname, 'commands');
   const commandFolders = readdirSync(foldersPath);
 
   for (const folder of commandFolders) {
     const commandsPath = join(foldersPath, folder);
-    const commandFiles = readdirSync(commandsPath).filter((file) =>
-      file.endsWith(isDevEnv ? '.ts' : '.js'),
-    );
+    const commandFiles = readdirSync(commandsPath).filter((file) => {
+      return file.endsWith(isDevEnv ? '.ts' : '.js');
+    });
 
     for (const file of commandFiles) {
       const filePath = join(commandsPath, file);
