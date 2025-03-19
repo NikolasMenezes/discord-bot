@@ -22,6 +22,12 @@ export const command: CommandInterface = {
 
     interaction.reply('Deleting ...');
 
-    interaction.deleteReply();
+    await new Promise((resolve) =>
+      resolve(
+        setTimeout(() => {
+          interaction.deleteReply();
+        }, 3000),
+      ),
+    );
   },
 };
